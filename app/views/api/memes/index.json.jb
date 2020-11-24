@@ -1,4 +1,4 @@
-@memes.map do |meme| 
+@memes.map do |meme|
   {
     image: meme.image,
     top_text: meme.top_text,

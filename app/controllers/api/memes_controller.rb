@@ -23,4 +23,22 @@ class Api::MemesController < ApplicationController
     render "show.json.jb"
   end 
 
+  # Go check if we have current user logic in there for line 31
+  # Go add "has_many" and "belongs_to" associations for Users and Memes
+  def update
+    @meme = Meme.find_by(params[:id])
+
+    if @meme.user_id === current_user.id(
+      @meme.image = params[:image] || @meme.image 
+      @meme.top_text = params[:top_text] || @meme.top_text 
+      @meme.bottom_text = params[:bottom_text] || @meme.bottom_text 
+    )
+  end 
+
+  if @meme.save 
+    render "show.json.jb"
+  else
+    render json: { errors: @meme.errors.full_messages }, status: :bad_request
+  end 
+
 end
