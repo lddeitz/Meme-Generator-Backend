@@ -1,5 +1,10 @@
 class Api::MemesController < ApplicationController
 
+  def index
+    @memes = Meme.all
+    render "index.json.jb"
+  end 
+
   def create
     @meme = Meme.new(
       image: params[:image],
