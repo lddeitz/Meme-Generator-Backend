@@ -7,10 +7,15 @@ class Api::UsersController < ApplicationController
         password_digest: params[:password_digest]
       )
     if @user.save
-      render "show.json.jb"
+      render "show.json.jb", status: :created
     else
       render json: { errors: @user.errors.full_messages}, status: :bad_request
     end 
   end
+
+  def show
+    @user = User.find_by(params[:id])
+    render "show.json.jb"
+  end 
   
 end
