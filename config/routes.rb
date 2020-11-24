@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     #memes routes
     post "/memes" => "memes#create"
+    get "/memes/:id" => "memes#show"
 
   end 
 

@@ -13,4 +13,9 @@ class Api::MemesController < ApplicationController
     end
   end 
 
+  def show
+    @meme = Meme.find_by(params[:id])
+    render "show.json.jb"
+  end 
+
 end
