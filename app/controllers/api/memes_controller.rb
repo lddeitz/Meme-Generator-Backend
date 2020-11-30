@@ -24,7 +24,7 @@ class Api::MemesController < ApplicationController
   end 
 
   # Go check if we have current user logic in there for line 31
-  # Go add "has_many" and "belongs_to" associations for Users and Memes
+
   def update
     @meme = Meme.find_by(params[:id])
 
