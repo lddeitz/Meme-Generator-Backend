@@ -6,6 +6,7 @@ class Api::MemesController < ApplicationController
   end 
 
   def create
+    p "*************************"
     @meme = Meme.new(
       image: params[:image],
       top_text: params[:top_text],
@@ -28,17 +29,17 @@ class Api::MemesController < ApplicationController
   def update
     @meme = Meme.find_by(params[:id])
 
-    if @meme.user_id === current_user.id(
+    if @meme.user_id === current_user.id
       @meme.image = params[:image] || @meme.image 
       @meme.top_text = params[:top_text] || @meme.top_text 
-      @meme.bottom_text = params[:bottom_text] || @meme.bottom_text 
-    )
-  end 
+      @meme.bottom_text = params[:bottom_text] || @meme.bottom_text
+    end
 
-  if @meme.save 
-    render "show.json.jb"
-  else
-    render json: { errors: @meme.errors.full_messages }, status: :bad_request
-  end 
+    if @meme.save 
+      render "show.json.jb"
+    else
+      render json: { errors: @meme.errors.full_messages }, status: :bad_request
+    end 
+  end
 
 end
