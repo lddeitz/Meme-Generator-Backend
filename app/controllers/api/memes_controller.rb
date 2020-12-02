@@ -6,7 +6,6 @@ class Api::MemesController < ApplicationController
   end 
 
   def create
-    p "*************************"
     @meme = Meme.new(
       image: params[:image],
       top_text: params[:top_text],
@@ -40,6 +39,12 @@ class Api::MemesController < ApplicationController
     else
       render json: { errors: @meme.errors.full_messages }, status: :bad_request
     end 
+  end
+
+  def destroy
+    @meme = Meme.find_by(id: params[:id])
+    @meme.destroy
+    render json: { message: "Meme successfully destroyed" }
   end
 
 end

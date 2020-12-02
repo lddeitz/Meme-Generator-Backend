@@ -18,6 +18,14 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     render "show.json.jb"
-  end 
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    if @user.user_id === current_user.id
+      @user.destroy
+      render json: { message: "User successfully destroyed" }
+    end
+  end
   
 end
