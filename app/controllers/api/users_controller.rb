@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
-    if @user.user_id === current_user.id
+    if @user.id === current_user.id
       @user.destroy
       render json: { message: "User successfully destroyed" }
     end

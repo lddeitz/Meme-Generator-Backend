@@ -2,6 +2,7 @@
   {
     image: meme.image,
     top_text: meme.top_text,
-    bottom_text: meme.bottom_text
+    bottom_text: meme.bottom_text,
+    user_id: meme.user_id
   }
 end 
