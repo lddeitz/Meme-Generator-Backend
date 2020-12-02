@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_11_19_032708) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "memes", force: :cascade do |t|
     t.string "image"
     t.string "top_text"
