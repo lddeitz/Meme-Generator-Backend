@@ -22,7 +22,7 @@ class Api::MemesController < ApplicationController
   end 
 
   def show
-    @meme = Meme.find_by(params[:id])
+    @meme = Meme.find(params[:id])
     render "show.json.jb"
   end 
 
@@ -46,7 +46,7 @@ class Api::MemesController < ApplicationController
   end
 
   def destroy
-    @meme = Meme.find_by(id: params[:id])
+    @meme = Meme.find(params[:id])
     @meme.destroy
     render json: { message: "Meme successfully destroyed" }
   end
